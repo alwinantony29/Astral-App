@@ -1,0 +1,35 @@
+{
+  "name": "astral-app",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "shopify app dev",
+    "app:dev": "concurrently -n w: npm:dev-*",
+    "dev-remix": "dotenv -- npm run dev --workspace=remix-app",
+    "dev-nest": "dotenv -- npm run start:dev --workspace=nest-app",
+    "migrate": "dotenv -- npm run migrate --workspace=prisma-db",
+    "shopify": "shopify",
+    "config:link": "shopify app config link",
+    "config:use": "shopify app config use",
+    "deploy": "shopify app deploy",
+    "codegen": "npm run graphql-codegen --workspace=remix-app"
+  },
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "remix-app",
+    "nest-app",
+    "prisma-db",
+    "extensions/*"
+  ],
+  "dependencies": {
+    "dotenv-cli": "^7.3.0"
+  },
+  "packageManager": "yarn@4.1.0",
+  "devDependencies": {
+    "@shopify/app": "^3.55.4",
+    "@shopify/cli": "^3.55.4",
+    "concurrently": "^8.2.2"
+  }
+}

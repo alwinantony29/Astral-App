@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "113c8291d8f0ef7da43f8116892eeb3b"
+name = "astral-app"
+application_url = "https://mrna-tub-turned-hey.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "storetools-delta.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_themes,write_products,write_themes"
+
+[auth]
+redirect_urls = [
+  "https://mrna-tub-turned-hey.trycloudflare.com/auth/callback",
+  "https://mrna-tub-turned-hey.trycloudflare.com/auth/shopify/callback",
+  "https://mrna-tub-turned-hey.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2023-10"
+
+[pos]
+embedded = false
