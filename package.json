@@ -25,12 +25,14 @@
   ],
   "dependencies": {
     "axios": "^1.6.8",
-    "dotenv-cli": "^7.3.0"
+    "dotenv-cli": "^7.3.0",
+    "luxon": "^3.4.4"
   },
   "packageManager": "yarn@4.1.0",
   "devDependencies": {
     "@shopify/app": "^3.55.4",
     "@shopify/cli": "^3.55.4",
+    "@types/luxon": "^3.4.2",
     "concurrently": "^8.2.2"
   }
 }

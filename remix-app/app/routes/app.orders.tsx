@@ -1,23 +1,22 @@
-import { useLoaderData } from "@remix-run/react";
-import { Badge, Card, DataTable, Layout, Page, Text } from "@shopify/polaris";
+import { Link, useLoaderData } from "@remix-run/react";
+import {
+  Badge,
+  Card,
+  Checkbox,
+  DataTable,
+  Layout,
+  Page,
+  Text,
+} from "@shopify/polaris";
 import axios from "axios";
-import React, { useEffect } from "react";
+import React from "react";
+import { DateTime } from "luxon";
 
 export async function loader() {
   const { data } = await axios.get("http://localhost:3000/order");
   return data;
 }
 
-const data = [
-  {
-    order: 1,
-    date: "06-04-2024",
-    customer: "John Doe",
-    paymentStatus: "paid",
-    fulfillmentStatus: "unfulfilled",
-    total: 1300,
-  },
-];
 const OrdersPage = () => {
   const orders = useLoaderData();
 
@@ -31,13 +30,15 @@ const OrdersPage = () => {
             <DataTable
               columnContentTypes={[
                 "text",
-                "numeric",
-                "numeric",
-                "numeric",
-                "numeric",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
                 "numeric",
               ]}
               headings={[
+                <Checkbox checked={false} />,
                 "Orders",
                 "Date",
                 "Customer",
@@ -46,12 +47,13 @@ const OrdersPage = () => {
                 "Total",
               ]}
               rows={orders.map((orderDetails) => [
-                <Text as="span">{orderDetails.id}</Text>,
-                orderDetails.date,
+                <Checkbox />,
+                <Link to={orderDetails.id}>{orderDetails.id}</Link>,
+                DateTime.fromISO(orderDetails.date).toFormat("dd/MM/yyyy"),
                 orderDetails.customerName,
                 <Badge
                   tone={
-                    orderDetails.paymentStatus === "paid"
+                    orderDetails.paymentStatus === "Paid"
                       ? "success"
                       : "enabled"
                   }
