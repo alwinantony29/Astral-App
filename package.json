@@ -24,6 +24,7 @@
     "extensions/*"
   ],
   "dependencies": {
+    "axios": "^1.6.8",
     "dotenv-cli": "^7.3.0"
   },
   "packageManager": "yarn@4.1.0",

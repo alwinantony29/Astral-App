@@ -2,7 +2,7 @@
 
 client_id = "d5e0fe5666c7fa7383dc080fca988567"
 name = "alwin-astral-dev"
-application_url = "https://stay-employees-relax-richard.trycloudflare.com"
+application_url = "https://briefing-jade-running-copy.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = ""
 
 [auth]
 redirect_urls = [
-  "https://stay-employees-relax-richard.trycloudflare.com/auth/callback",
-  "https://stay-employees-relax-richard.trycloudflare.com/auth/shopify/callback",
-  "https://stay-employees-relax-richard.trycloudflare.com/api/auth/callback"
+  "https://briefing-jade-running-copy.trycloudflare.com/auth/callback",
+  "https://briefing-jade-running-copy.trycloudflare.com/auth/shopify/callback",
+  "https://briefing-jade-running-copy.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

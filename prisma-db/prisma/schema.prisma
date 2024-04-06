@@ -29,6 +29,7 @@ model Order {
   customerName        String      
   customerId          Int         
   customer            Customer      @relation(fields: [customerId], references: [id])
+  date                DateTime      @default(now())
 }
 
 model Customer {
