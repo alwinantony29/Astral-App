@@ -20,3 +20,19 @@ model Session {
   accessToken String
   userId      BigInt?
 }
+
+model Order {
+  id                  Int           @id @default(autoincrement())
+  paymentStatus       String      
+  fulfillmentStatus   String      
+  total               Decimal       @db.Decimal(10, 2)
+  customerName        String      
+  customerId          Int         
+  customer            Customer      @relation(fields: [customerId], references: [id])
+}
+
+model Customer {
+  id                  Int         @id @default(autoincrement())
+  name                String
+  orders              Order[]
+}
