@@ -8,17 +8,25 @@ import {
   Page,
   Text,
 } from "@shopify/polaris";
-import axios from "axios";
 import React from "react";
 import { DateTime } from "luxon";
+import { authenticate } from "~/shopify.server";
+import { LoaderFunctionArgs } from "@remix-run/node";
 
-export async function loader() {
-  const { data } = await axios.get("http://localhost:3000/order");
-  return data;
+export async function loader({ request }: LoaderFunctionArgs) {
+  const { admin, session } = await authenticate.admin(request);
+
+  const res = await admin.rest.resources.Order.all({
+    session: session,
+    status: "any",
+  });
+  console.log(res);
+
+  return res;
 }
 
 const OrdersPage = () => {
-  const orders = useLoaderData();
+  const orders = useLoaderData() || [];
 
   console.log(orders);
   return (
